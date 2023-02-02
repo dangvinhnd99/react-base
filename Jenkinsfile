@@ -3,7 +3,7 @@ pipeline {
     stages {
            stage('ssh'){
             steps {
-                sh 'ssh -i sshkey.pem ubuntu@54.172.24.178'
+                sh 'ssh -t sshkey.pem ubuntu@54.172.24.178'
             }
         }
         stage('change dir'){
