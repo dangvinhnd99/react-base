@@ -1,19 +1,21 @@
-
-
 pipeline {
     agent any
     stages {
         stage('ssh'){
-            step {
+            steps {
                 sh 'ssh -i sshkey.pem ubuntu@54.172.24.178'
             }
         }
         stage('change dir'){
-            sh 'cd /var/www/react-base/html/react-base' {
+            steps {
+            sh 'cd /var/www/react-base/html/react-base' 
+            }
     // some block
         }
             stage('git'){
+                steps{
             git 'git clone https://github.com/dangvinhnd99/react-base.git'
+            }
             }
             stage('Install dependencies') {
             steps {
@@ -27,4 +29,3 @@ pipeline {
     }
 }
     }
-}
