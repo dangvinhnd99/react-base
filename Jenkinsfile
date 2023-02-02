@@ -10,7 +10,7 @@ pipeline {
     
 }
             }
-        }
+        
         stage('change dir'){
             steps {
             sh 'cd /var/www/react-base/html/react-base' 
