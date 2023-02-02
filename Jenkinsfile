@@ -11,7 +11,7 @@ pipeline {
     // some block
         }
             stage('git'){
-            git 'git pull origin master'
+            git 'git clone https://github.com/dangvinhnd99/react-base.git'
             }
             stage('Install dependencies') {
             steps {
