@@ -3,7 +3,7 @@ pipeline {
     stages {
            stage('ssh'){
             steps {
-                sh 'ssh /var/lib/jenkins/workspace/pipeline/sshkey.pem ubuntu@54.172.24.178'
+                sh 'ssh -i /var/lib/jenkins/workspace/pipeline/sshkey.pem ubuntu@54.172.24.178'
             }
         }
         stage('change dir'){
