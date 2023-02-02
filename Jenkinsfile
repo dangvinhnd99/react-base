@@ -10,7 +10,9 @@ pipeline {
         }
         stage('change dir'){
             steps {
-                sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "cd /var/www/react-base/html/react-base && ls"'
+                 sshagent(['vinhssh']) {
+                    sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "cd /var/www/react-base/html/react-base && ls"'
+                 }
             }
         }
         stage('git'){
