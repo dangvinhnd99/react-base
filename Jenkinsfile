@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-          stage('change dir'){
+          stage('change direct'){
             steps {
             sh 'cd' 
             }
