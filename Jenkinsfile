@@ -7,23 +7,21 @@ pipeline {
             }
         }
         stage('change dir'){
-            sh 'cd /var/www/react-base/html/react-base' {
-    // some block
+            sh 'cd /var/www/react-base/html/react-base'
         }
-            stage('git'){
+        stage('git'){
             git 'git clone https://github.com/dangvinhnd99/react-base.git'
-            }
-            stage('Install dependencies') {
+        }
+        stage('Install dependencies') {
             steps {
                 sh 'yarn install'
             }
         }
-            stage('Build projectasdasdsa') {
+        stage('Build projectasdasdsa') {
             steps {
                 sh 'yarn run build'
             }
-    }
-}
+        }
     }
 }
 
