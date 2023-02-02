@@ -18,7 +18,7 @@ pipeline {
         stage('git pull'){
             steps{
                 sshagent(['vinhssh']) {
-                 git 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "sudo git pull origin master"'
+                 sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "sudo git pull origin master"'
                 }
             }
         }
