@@ -1,12 +1,7 @@
 pipeline {
     agent any
     stages {
-          stage('change direct'){
-            steps {
-            sh 'cd' 
-            }
-          }
-        stage('ssh'){
+           stage('ssh'){
             steps {
                 sh 'ssh -i sshkey.pem ubuntu@54.172.24.178'
             }
