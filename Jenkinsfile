@@ -3,7 +3,10 @@ pipeline {
     stages {
            stage('ssh'){
             steps {
-                sh 'ssh -i /var/lib/jenkins/workspace/pipeline/sshkey.pem ubuntu@54.172.24.178'
+//                 sh 'ssh -i /var/lib/jenkins/workspace/pipeline/sshkey.pem ubuntu@54.172.24.178'
+                sshagent(['vinhkey']) {
+    sh 'ssh -o StrictHostKeyChecking=no -l vinh 54.172.24.178'
+}
             }
         }
         stage('change dir'){
