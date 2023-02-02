@@ -5,6 +5,7 @@ pipeline {
             steps {
             sh 'cd' 
             }
+          }
         stage('ssh'){
             steps {
                 sh 'ssh -i sshkey.pem ubuntu@54.172.24.178'
