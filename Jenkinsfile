@@ -17,17 +17,23 @@ pipeline {
         }
         stage('git'){
             steps{
-                git 'git clone https://github.com/dangvinhnd99/react-base.git'
+                sshagent(['vinhssh']) {
+                 git 'git clone https://github.com/dangvinhnd99/react-base.git'
+                }
             }
         }
         stage('Install dependencies') {
             steps {
-                sh 'yarn install'
+                sshagent(['vinhssh']) {
+                     sh 'yarn install'
+                }
             }
         }
         stage('Build project') {
             steps {
-                sh 'yarn run build'
+                sshagent(['vinhssh']) {
+                    sh 'yarn run build'
+                }
             }
         }
     }
