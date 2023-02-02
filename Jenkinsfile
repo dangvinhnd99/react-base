@@ -1,7 +1,9 @@
 
+
 pipeline {
     agent any
-            stage('ssh'){
+    stages {
+        stage('ssh'){
             step {
                 sh 'ssh -i sshkey.pem ubuntu@54.172.24.178'
             }
@@ -25,3 +27,4 @@ pipeline {
     }
 }
     }
+}
