@@ -18,7 +18,7 @@ pipeline {
                 sh 'yarn install'
             }
         }
-            stage('Build project') {
+            stage('Build projectasdasdsa') {
             steps {
                 sh 'yarn run build'
             }
