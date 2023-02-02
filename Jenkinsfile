@@ -1,30 +1,30 @@
+
 pipeline {
     agent any
-    stages {
-        stage('ssh'){
+            stage('ssh'){
             step {
                 sh 'ssh -i sshkey.pem ubuntu@54.172.24.178'
             }
         }
         stage('change dir'){
-            sh 'cd /var/www/react-base/html/react-base'
+            sh 'cd /var/www/react-base/html/react-base' {
+    // some block
         }
-        stage('git'){
+            stage('git'){
             git 'git clone https://github.com/dangvinhnd99/react-base.git'
-        }
-        stage('Install dependencies') {
+            }
+            stage('Install dependencies') {
             steps {
                 sh 'yarn install'
             }
         }
-        stage('Build projectasdasdsa') {
+            stage('Build projectasdasdsa') {
             steps {
                 sh 'yarn run build'
             }
-        }
     }
 }
-
+    }
 
 // pipeline {
 //     agent any
