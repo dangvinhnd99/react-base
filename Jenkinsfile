@@ -3,7 +3,7 @@ pipeline {
     stages {
            stage('ssh'){
             steps {
-                sh 'ssh -o StrictHostKeyChecking=no -o sshkey.pem=/dev/null  ubuntu@54.172.24.178'
+                sh 'ssh -o StrictHostKeyChecking=no -i sshkey.pem ubuntu@54.172.24.178'
             }
         }
         stage('change dir'){
