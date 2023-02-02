@@ -11,7 +11,7 @@ pipeline {
         stage('change dir'){
             steps {
                  sshagent(['vinhssh']) {
-                    sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "cd /var/www/react-base/html/react-base && ls"'
+                    sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "cd /var/www/react-base/html/react-base && sudo git pull origin master "'
                  }
             }
         }
