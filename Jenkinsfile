@@ -18,14 +18,14 @@ pipeline {
         stage('git'){
             steps{
                 sshagent(['vinhssh']) {
-                 git 'git clone https://github.com/dangvinhnd99/react-base.git'
+                 git 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "sudo git clone https://github.com/dangvinhnd99/react-base.git"'
                 }
             }
         }
         stage('Install dependencies') {
             steps {
                 sshagent(['vinhssh']) {
-                     sh 'yarn install'
+                     sh 'sudo yarn install'
                 }
             }
         }
