@@ -7,7 +7,7 @@ pipeline {
             }
         }
         stage('change dir'){
-            dir('/var/www/react-base/html') {
+            sh 'cd /var/www/react-base/html/react-base' {
     // some block
         }
             stage('git'){
@@ -24,3 +24,5 @@ pipeline {
             }
     }
 }
+
+
