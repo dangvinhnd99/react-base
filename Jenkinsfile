@@ -1,35 +1,32 @@
 pipeline {
     agent any
     stages {
-           stage('ssh'){
+        stage('ssh'){
             steps {
-               sshagent(['vinhssh']) {
-    sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55'
-}
-    
-}
+                sshagent(['vinhssh']) {
+                    sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55'
+                }
             }
-        
+        }
         stage('change dir'){
             steps {
-            sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 cd /var/www/react-base/html/react-base' 
+                sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "cd /var/www/react-base/html/react-base && ls"'
             }
-    // some block
         }
-            stage('git'){
-                steps{
-            git 'git clone https://github.com/dangvinhnd99/react-base.git'
+        stage('git'){
+            steps{
+                git 'git clone https://github.com/dangvinhnd99/react-base.git'
             }
-            }
-            stage('Install dependencies') {
+        }
+        stage('Install dependencies') {
             steps {
                 sh 'yarn install'
             }
         }
-            stage('Build projecdasdsa') {
+        stage('Build project') {
             steps {
                 sh 'yarn run build'
             }
+        }
     }
 }
-    }
