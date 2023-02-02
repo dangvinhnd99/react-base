@@ -15,24 +15,25 @@ pipeline {
                  }
             }
         }
-        stage('git'){
+        stage('git pull'){
             steps{
                 sshagent(['vinhssh']) {
-                 git 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "sudo git clone https://github.com/dangvinhnd99/react-base.git"'
+                 git 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "sudo git pull origin master"'
                 }
             }
         }
+     
         stage('Install dependencies') {
             steps {
                 sshagent(['vinhssh']) {
-                     sh 'sudo yarn install'
+                     sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "sudo yarn install"'
                 }
             }
         }
         stage('Build project') {
             steps {
                 sshagent(['vinhssh']) {
-                    sh 'yarn run build'
+                    sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "yarn run build"'
                 }
             }
         }
