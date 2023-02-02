@@ -12,7 +12,7 @@ pipeline {
         
         stage('change dir'){
             steps {
-            sh 'cd /var/www/react-base/html/react-base' 
+            sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 cd /var/www/react-base/html/react-base' 
             }
     // some block
         }
