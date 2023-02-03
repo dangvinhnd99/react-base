@@ -22,7 +22,7 @@ pipeline {
                  }
             }
         }
-         stage('CI terraform 2'){
+         stage('CI terraform 2 terraform init, apply'){
             steps {
                  sshagent(['vinhssh']) {
                     sh 'ssh -o StrictHostKeyChecking=no -l ubuntu ubuntu@54.152.4.55 "cd B1 && terraform init && terraform apply -auto-approve"'
